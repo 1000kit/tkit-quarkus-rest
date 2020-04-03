@@ -123,7 +123,7 @@ public class DefaultExceptionMapper implements ExceptionMapper<Exception> {
         List<Locale> locales = headers.getAcceptableLanguages();
         if (locales != null && !locales.isEmpty()) {
             Locale tmp = locales.get(0);
-            if (!"*".endsWith(tmp.getLanguage())) {
+            if (tmp != null && !"*".equals(tmp.getLanguage())) {
                 return tmp;
             }
         }
