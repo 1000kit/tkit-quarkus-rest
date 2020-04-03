@@ -7,9 +7,29 @@
 
 ## Documentation
 
-TODO!
+Example project with this extension is in the [1000kit JPA guides](https://1000kit.gitlab.io/guides/docs/quarkus/quarkus-jpa-project/)
 
-### Create a release
+This 1000kit extension contains `DTO` and `Exception` for the `REST` interface.
+
+### DTO
+
+All `DTO` classes are in the package `org.tkit.quarkus.rs.models`. These classes have weak reference to the
+`Entity` classes and `PageResult` class in the [tkit-quarkus-jpar]() extension.
+The class `RestExceptionDTO` is for the `RestException`.
+
+### Exception
+
+This extension define the `RestException` which should be use in the `RestController`. This exception support 
+translation for the `errorCode` with `parameters`. The local is taken from the HTTP request. For default value use
+Quarkus configuration value `quarkus.default-locale`. 
+Exception is in the package `org.tkit.quarkus.rs.exceptions`
+
+### Mappers
+
+In the package `org.tkit.quarkus.rs.mappers` is the `ExceptionMapper` for all `Exception` in the project with priority `10000`.
+You can `extend` and overwrite this `ExceptionMapper`. Use the `@Priority` to overwrite existing registration.
+
+## Create a release
 
 ```bash
 mvn semver-release:release-create
