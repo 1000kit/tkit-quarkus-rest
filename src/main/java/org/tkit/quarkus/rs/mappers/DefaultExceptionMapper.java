@@ -15,6 +15,11 @@
  */
 package org.tkit.quarkus.rs.mappers;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+import lombok.extern.slf4j.Slf4j;
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.tkit.quarkus.rs.exceptions.RestException;
 import org.tkit.quarkus.rs.models.RestExceptionDTO;
 import org.tkit.quarkus.rs.resources.ResourceManager;
@@ -25,14 +30,17 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * The default exception mapper with priority {@code PRIORITY}.
  */
+@Slf4j
 @Provider
 @Priority(DefaultExceptionMapper.PRIORITY)
 public class DefaultExceptionMapper implements ExceptionMapper<Exception> {
@@ -49,10 +57,21 @@ public class DefaultExceptionMapper implements ExceptionMapper<Exception> {
     private HttpHeaders headers;
 
     /**
+     * The request URI info.
+     */
+    @Context
+    UriInfo uriInfo;
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public Response toResponse(Exception e) {
+        Optional<Boolean> logException = ConfigProvider.getConfig().getOptionalValue("tkit.rs.mapper.log", Boolean.class);
+        if (logException.isEmpty() || logException.get()) {
+            log.error("REST exception URL:{},ERROR:{}", uriInfo.getRequestUri(), e.getMessage());
+            log.error("REST exception error!", e);
+        }
         if (e instanceof RestException) {
             return createResponse((RestException) e);
         }
