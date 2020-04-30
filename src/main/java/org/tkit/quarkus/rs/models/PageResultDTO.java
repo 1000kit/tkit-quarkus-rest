@@ -15,6 +15,7 @@
  */
 package org.tkit.quarkus.rs.models;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@RegisterForReflection
 public class PageResultDTO<T> {
 
     /**

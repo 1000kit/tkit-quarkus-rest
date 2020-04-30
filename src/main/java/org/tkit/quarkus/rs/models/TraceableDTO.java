@@ -15,6 +15,7 @@
  */
 package org.tkit.quarkus.rs.models;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +27,7 @@ import java.util.UUID;
  */
 @Getter
 @Setter
+@RegisterForReflection
 public class TraceableDTO extends AbstractTraceableDTO<String> {
 
     /**
