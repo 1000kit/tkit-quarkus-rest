@@ -48,7 +48,7 @@ public class BusinessTraceableDTO extends AbstractTraceableDTO<Long> {
      * {@inheritDoc }
      */
     @Override
-    public void setId(Long businessId) {
+    public void setId(Long id) {
         this.id = id;
     }
 
