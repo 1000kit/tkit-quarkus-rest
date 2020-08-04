@@ -58,16 +58,6 @@ public abstract class AbstractTraceableDTO<T> implements Serializable {
     private String modificationUser;
 
     /**
-     * The persisted flag.
-     */
-    protected boolean persisted;
-
-    /**
-     * The modification user data.
-     */
-    private boolean controlTraceabilityManual = false;
-
-    /**
      * Gets the GUID.
      *
      * @return the GUID.
