@@ -49,42 +49,58 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+
+        <quarkus.version>1.7.2.Final</quarkus.version>
+        <jakarta.ws.rs-api.version>2.1.6</jakarta.ws.rs-api.version>
+        <jakarta.annotation-api.version>1.3.5</jakarta.annotation-api.version>
+        <slf4j-api.version>1.7.30</slf4j-api.version>
+        <lombok.version>1.18.12</lombok.version>
+        <microprofile-config-api.version>1.4</microprofile-config-api.version>
+
+        <semver-release-plugin.version>0.6.0</semver-release-plugin.version>
+        <compiler-plugin.version>3.8.1</compiler-plugin.version>
+        <jandex-plugin.version>1.0.7</jandex-plugin.version>
+        <nexus.staging-plugin.version>1.6.8</nexus.staging-plugin.version>
+        <source-plugin.version>3.2.0</source-plugin.version>
+        <javadoc-plugin.version>3.1.1</javadoc-plugin.version>
+        <gpg-plugin.version>1.6</gpg-plugin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-core</artifactId>
-            <version>1.6.1.Final</version>
+            <version>${quarkus.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>2.1.6</version>
+            <version>${jakarta.ws.rs-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
-            <version>1.3.5</version>
+            <version>${jakarta.annotation-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>${slf4j-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.microprofile.config</groupId>
             <artifactId>microprofile-config-api</artifactId>
-            <version>1.4</version>
+            <version>${microprofile-config-api.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -95,11 +111,11 @@
                 <plugin>
                     <groupId>org.lorislab.maven</groupId>
                     <artifactId>semver-release-maven-plugin</artifactId>
-                    <version>0.6.0</version>
+                    <version>${semver-release-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>${compiler-plugin.version}</version>
                 </plugin>           
             </plugins>
         </pluginManagement>
@@ -107,7 +123,7 @@
             <plugin>
                 <groupId>org.jboss.jandex</groupId>
                 <artifactId>jandex-maven-plugin</artifactId>
-                <version>1.0.6</version>
+                <version>${jandex-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>make-index</id>
@@ -144,7 +160,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
+                        <version>${nexus.staging-plugin.version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
@@ -156,7 +172,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>${source-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -169,7 +185,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.4</version>
+                        <version>${javadoc-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -185,7 +201,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>${gpg-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -208,4 +224,3 @@
     </profiles>
     
 </project>
-
