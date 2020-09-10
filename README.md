@@ -11,12 +11,18 @@ Example project with this extension is in the [1000kit JPA guides](https://1000k
 
 This 1000kit extension contains `DTO` and `Exception` for the `REST` interface.
 
-### Config
+### OpenID connect interceptor
 
+```properties
+rest-client/mp-rest/url=https://service
+rest-client/mp-rest/providers=org.tkit.quarkus.rs.interceptors.OpenIDConnectInterceptor
+```
+### Config
 
 | Property | Env | Default | Values | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | tkit.rs.mapper.log | TKIT_RS_MAPPER_LOG | true | true,false | Disable or enable log in the exception mapper | 
+
 ### DTO
 
 All `DTO` classes are in the package `org.tkit.quarkus.rs.models`. These classes have weak reference to the
