@@ -61,10 +61,6 @@
         <semver-release-plugin.version>0.6.0</semver-release-plugin.version>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <jandex-plugin.version>1.0.7</jandex-plugin.version>
-        <nexus.staging-plugin.version>1.6.8</nexus.staging-plugin.version>
-        <source-plugin.version>3.2.0</source-plugin.version>
-        <javadoc-plugin.version>3.1.1</javadoc-plugin.version>
-        <gpg-plugin.version>1.6</gpg-plugin.version>
     </properties>
 
     <dependencies>
@@ -160,7 +156,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>${nexus.staging-plugin.version}</version>
+                        <version>1.6.8</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
@@ -172,7 +168,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>${source-plugin.version}</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -185,23 +181,20 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${javadoc-plugin.version}</version>
+                        <version>3.2.0</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
-                                <configuration>
-                                    <additionalparam>-source 8</additionalparam>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${gpg-plugin.version}</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
