@@ -15,11 +15,8 @@
  */
 package org.tkit.quarkus.rs.mappers;
 
-import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigProvider;
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.tkit.quarkus.rs.exceptions.RestException;
 import org.tkit.quarkus.rs.models.RestExceptionDTO;
 import org.tkit.quarkus.rs.resources.ResourceManager;

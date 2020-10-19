@@ -21,6 +21,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 /**
  * The persistent entity interface.
@@ -43,7 +44,7 @@ public abstract class AbstractTraceableDTO<T> implements Serializable {
     /**
      * The creation date.
      */
-    private LocalDateTime creationDate;
+    private OffsetDateTime creationDate;
     /**
      * The creation user.
      */
@@ -51,7 +52,7 @@ public abstract class AbstractTraceableDTO<T> implements Serializable {
     /**
      * The modification date.
      */
-    private LocalDateTime modificationDate;
+    private OffsetDateTime modificationDate;
     /**
      * The modification user.
      */
