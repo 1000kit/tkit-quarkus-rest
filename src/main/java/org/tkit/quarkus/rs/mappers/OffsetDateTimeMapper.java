@@ -2,7 +2,6 @@ package org.tkit.quarkus.rs.mappers;
 
 import org.mapstruct.Mapper;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -14,7 +13,7 @@ public abstract class OffsetDateTimeMapper {
         if (dateTime == null) {
             return null;
         }
-        return OffsetDateTime.of(dateTime, ZoneOffset.systemDefault().getRules().getOffset(Instant.now()));
+        return OffsetDateTime.of(dateTime, ZoneOffset.systemDefault().getRules().getOffset(dateTime));
     }
 
     public LocalDateTime map(OffsetDateTime offsetDateTime) {
