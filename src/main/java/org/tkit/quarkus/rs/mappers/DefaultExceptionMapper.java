@@ -67,7 +67,6 @@ public class DefaultExceptionMapper implements ExceptionMapper<Exception> {
         Optional<Boolean> logException = ConfigProvider.getConfig().getOptionalValue("tkit.rs.mapper.log", Boolean.class);
         if (logException.isEmpty() || logException.get()) {
             log.error("REST exception URL:{},ERROR:{}", uriInfo.getRequestUri(), e.getMessage());
-            log.error("REST exception error!", e);
         }
         if (e instanceof RestException) {
             return createResponse((RestException) e);
