@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tkit-quarkus-rest
+  description: Quarkus extension for JAXRS REST services
+  tags:
+    - java
+    - quarkus
+    - rest
+    - extension
+    - jaxrs
+spec:
+  type: library
+  lifecycle: production
+  owner: 1000kit
+  system: 1000kit-quarkus-libs
