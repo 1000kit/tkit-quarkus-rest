@@ -62,7 +62,7 @@
         <microprofile-config-api.version>1.4</microprofile-config-api.version>
 
         <semver-release-plugin.version>0.7.0</semver-release-plugin.version>
-        <compiler-plugin.version>3.8.1</compiler-plugin.version>
+        <compiler-plugin.version>3.11.0</compiler-plugin.version>
         <jandex-plugin.version>1.0.8</jandex-plugin.version>
     </properties>
 
